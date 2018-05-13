@@ -7,5 +7,7 @@ services:
   app:
     build: app/
     restart: always
+    ports:
+      - 80:80
     depends_on:
       - database
