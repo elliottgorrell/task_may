@@ -1,8 +1,11 @@
 version: '3'
 services:
-  db:
+  database:
     build: db/
-    ports:
-      - "27017:27017"
     volumes:
       - "./db_data:/data/db"
+  app:
+    build: app/
+    restart: always
+    depends_on:
+      - database

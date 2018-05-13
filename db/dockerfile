@@ -2,4 +2,6 @@ FROM mongo
 
 COPY init.js /docker-entrypoint-initdb.d/
 
+EXPOSE 27017
+
 ENTRYPOINT mongod --bind_ip_all
