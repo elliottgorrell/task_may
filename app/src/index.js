@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const app = require('./app');
 
 //db config
 const mongoDB = 'mongodb://database:27017/elliott';
