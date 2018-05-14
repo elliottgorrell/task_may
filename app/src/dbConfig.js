@@ -1,16 +1,6 @@
 const mongoose = require('mongoose');
-
-const { log } = require('./utils.js');
-
-// db config
-const mongoDB = 'mongodb://database:27017/elliott';
-mongoose.connect(mongoDB, null)
-  .catch((err) => {
-    console.log(err);
-  });
-const db = mongoose.connection;
-
 const Page = require('./db/models/page');
+const { log } = require('./utils.js');
 
 const createWelcomePage = () => {
   const page = new Page();
@@ -32,4 +22,17 @@ const createWelcomePage = () => {
   });
 };
 
-createWelcomePage();
+// db config
+const mongoDB = 'mongodb://localhost:27017/elliott';
+mongoose.connect(mongoDB, null)
+  .catch((err) => {
+    console.log(err);
+  });
+const db = mongoose.connection;
+
+Page.findOne({ route: '/' }, (err, page) => {
+  if (!page) {
+    createWelcomePage();
+  }
+});
+
