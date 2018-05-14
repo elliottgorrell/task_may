@@ -6,10 +6,10 @@ services:
       - 27017:27017
     volumes:
       - "./db_data:/data/db"
-  app:
-    build: app/
-    restart: always
-    ports:
-      - 80:80
-    depends_on:
-      - database
+  # app:
+  #   build: app/
+  #   restart: always
+  #   ports:
+  #     - 80:80
+  #   depends_on:
+  #     - database
