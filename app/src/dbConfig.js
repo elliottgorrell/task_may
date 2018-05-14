@@ -23,7 +23,7 @@ const createWelcomePage = () => {
 };
 
 // db config
-const mongoDB = 'mongodb://localhost:27017/elliott';
+const mongoDB = 'mongodb://database:27017/elliott';
 mongoose.connect(mongoDB, null)
   .catch((err) => {
     console.log(err);
